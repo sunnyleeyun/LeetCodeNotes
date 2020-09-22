@@ -165,7 +165,7 @@ class Solution:
 
 ## 總結
 
-老樣子，學習前序、中序、後序遍歷，甚至是 DFS, BFS 的熟悉度與應變，這部分還在努力吸收中，`Done is better than none.` 先學習一個思路。
+遞迴跟理解 inorder 與 preorder 的應用。
 
 
 reference: [105. Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.wang/leetcode-105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal.html)
