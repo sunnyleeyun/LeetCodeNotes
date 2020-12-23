@@ -1,1 +1,1 @@
-# LeetCodeNotes
+# LeetCode Notes
