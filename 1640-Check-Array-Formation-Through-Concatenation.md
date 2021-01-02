@@ -1,50 +1,112 @@
-# 858. Rotate Array
+# 1640. Check Array Formation Through Concatenation
 
 
 ## 題目描述
 
-There is a special square room with mirrors on each of the four walls.  Except for the southwest corner, there are receptors on each of the remaining corners, numbered 0, 1, and 2.
+You are given an array of distinct integers arr and an array of integer arrays pieces, where the integers in pieces are distinct. Your goal is to form arr by concatenating the arrays in pieces in any order. However, you are not allowed to reorder the integers in each array pieces[i].
 
-The square room has walls of length p, and a laser ray from the southwest corner first meets the east wall at a distance q from the 0th receptor.
+Return true if it is possible to form the array arr from pieces. Otherwise, return false.
 
-Return the number of the receptor that the ray meets first.  (It is guaranteed that the ray will meet a receptor eventually.)
-
-
-**Example 1:**:
+**Example 1:**
 
 ```
-Input: p = 2, q = 1
-Output: 2
-Explanation: The ray meets receptor 2 the first time it gets reflected back to the left wall.
+Input: arr = [85], pieces = [[85]]
+Output: true
 ```
-(![](https://i.imgur.com/taqhcCR.png))
 
---- 
 
-## 一、解法一
-
-原理在於無限往右延伸鏡子，可看 [這篇文章](https://buptwc.com/2018/06/26/Leetcode-858-Mirror-Reflection/) 的解釋。
+**Example 2:**
 
 ```
-class Solution:
-    def mirrorReflection(self, p: int, q: int) -> int:
-        
-        k = 1 # 1. 倍數
-        while p * k % q != 0: k += 1 # 2. 找到 k
-        
-        if k % 2 == 0: # 3. 若 k 為偶數，則位於下方，也就是 0
-            return 0
-        else: # 4. 若 k 為奇數，則位於上方，可能為 1 或 2
-            r = p * k / q # 5. 找到相對於 p 的倍數，若為偶數回傳 2，否則回傳 1
-            if r % 2 == 0:
-                return 2
-            else:
-                return 1
+Input: arr = [15,88], pieces = [[88],[15]]
+Output: true
+Explanation: Concatenate [15] then [88]
+```
+
+
+**Example 3:**
+
+```
+Input: arr = [49,18,16], pieces = [[16,18,49]]
+Output: false
+Explanation: Even though the numbers match, we cannot reorder pieces[0].
+```
+
+
+**Example 4:**
+
+```
+Input: arr = [91,4,64,78], pieces = [[78],[4,64],[91]]
+Output: true
+Explanation: Concatenate [91] then [4,64] then [78]
+```
+
+
+**Example 5:**
+
+```
+Input: arr = [1,3,5,7], pieces = [[2,4,6,8]]
+Output: false
 ```
 
 ---
 
+## 解法一
+
+自己寫出來的解法，Time Complexity 為 O(N^2)
+
+
+```
+class Solution:
+    def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
+        i = 0
+        while i < len(arr):
+            for j in range(len(pieces)):
+                if not pieces[j] or arr[i] != pieces[j][0]:
+                    if j == len(pieces) - 1:
+                        return False
+                    continue
+                # arr[i] == pieces[j][0]
+                c = len(pieces[j])
+                if arr[i] == pieces[j][0] and arr[i:i+c] == pieces[j]:
+                    i += c
+                    break
+                else:
+                    return False
+        return True
+```
+
+---
+
+## 解法二
+
+Solution 裡面 Hashmap 的解法，Time Complexity 降為 O(N)
+
+![](https://leetcode.com/problems/check-array-formation-through-concatenation/Figures/5554/5554_4.png)
+
+```
+class Solution:
+    def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
+        n = len(arr)
+        d = { p[0]: p for p in pieces }
+        i = 0
+        while i < n:
+            if arr[i] not in d:
+                return False
+            p = d[arr[i]]
+            for val in p:
+                if val != arr[i]:
+                    return False
+                i += 1
+                
+        return True
+```
+
+
+---
+
+
 ## 總結
 
-還算順利想出來了。
+題目不難，很高興自己有餘力尋找不止一種解法。
 
