@@ -31,8 +31,9 @@ Output: [1,3,2]
 
 *註：<L：Left；R：Right；V：Value>*
 
-上面三個概念，本位一體，三題搭配一起服用。
-碰到這個問題，直覺使用 Recursive 公式解，進一步使用 Iterative 解。
+上面三題，本位一體，搭配一起服用。
+
+碰到這類問題，直覺使用 Recursive 公式解，進一步使用 Iterative 解。
 
 詳細概念說明：http://alrightchiu.github.io/SecondRound/binary-tree-traversalxun-fang.html
 
@@ -61,7 +62,7 @@ def helper(self, root: TreeNode, res: List[int]):
         self.helper(root.right, res)
 ```
 
-> 時間複雜度：O(n)
+> 時間複雜度：O(n)；
 > 空間複雜度：O(h)，h 為樹高
 
 ---
@@ -124,7 +125,7 @@ class Solution:
         return res
 ```
 
-> 時間複雜度：O(n)
+> 時間複雜度：O(n)；
 > 空間複雜度：O(n)
 
 ---
