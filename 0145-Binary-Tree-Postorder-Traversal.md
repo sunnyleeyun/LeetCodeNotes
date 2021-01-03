@@ -57,7 +57,19 @@ Output: [2,1]
 
 ## 基本概念
 
-後序遍歷順序為：L->R->V
+前序遍歷：VLR （[0144 題](https://github.com/sunnyleeyun/LeetCodeNotes/blob/master/0144-Binary-Tree-Preorder-Traversal.md)）
+
+中序遍歷：LVR （[0094 題](https://github.com/sunnyleeyun/LeetCodeNotes/blob/master/0094-Binary-Tree-Inorder-Traversal.md)）
+
+後序遍歷：LRV （[0145 題](https://github.com/sunnyleeyun/LeetCodeNotes/blob/master/0145-Binary-Tree-Postorder-Traversal.md)）
+
+*註：<L：Left；R：Right；V：Value>*
+
+上面三題，本位一體，搭配一起服用。
+
+碰到這類問題，直覺使用 Recursive 公式解，進一步使用 Iterative 解。
+
+詳細概念說明：http://alrightchiu.github.io/SecondRound/binary-tree-traversalxun-fang.html
 
 ---
 
