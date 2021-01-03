@@ -32,6 +32,7 @@ Output: [1,3,2]
 *註：<L：Left；R：Right；V：Value>*
 
 上面三個概念，本位一體，三題搭配一起服用。
+碰到這個問題，直覺使用 Recursive 公式解，進一步使用 Iterative 解。
 
 詳細概念說明：http://alrightchiu.github.io/SecondRound/binary-tree-traversalxun-fang.html
 
@@ -67,7 +68,7 @@ def helper(self, root: TreeNode, res: List[int]):
 
 ## 二、解法二：Iterative 迭代
 
-迭代法在思路上比較難想通，「線」的特性是 **後進先出（LIFO）**，我們將左子樹的節點壓線，找不到左子樹時，線頂就是最底層的左子樹，出線打印出來；接著轉向右子樹父節點，繼續遍歷父節點的左子樹並壓線，以此循環。
+迭代法在思路上比較難想通，「線」的特性是 **先進後出（FILO）**，我們將左子樹的節點壓線，找不到左子樹時，線頂就是最底層的左子樹，出線打印出來；接著轉向右子樹父節點，繼續遍歷父節點的左子樹並壓線，以此循環。
 
 #### 過程
 
