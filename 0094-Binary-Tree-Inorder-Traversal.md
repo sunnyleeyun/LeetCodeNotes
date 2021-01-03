@@ -23,7 +23,7 @@ Output: [1,3,2]
 
 ## 基本概念
 
-前序遍歷：VLR （[0144 題](https://github.com/sunnyleeyun/LeetCodeNotes/blob/master/0144-Binary-Tree-Preorder-Traversal.md) ）
+前序遍歷：VLR （[0144 題](https://github.com/sunnyleeyun/LeetCodeNotes/blob/master/0144-Binary-Tree-Preorder-Traversal.md)）
 
 中序遍歷：LVR （[0094 題](https://github.com/sunnyleeyun/LeetCodeNotes/blob/master/0094-Binary-Tree-Inorder-Traversal.md)）
 
